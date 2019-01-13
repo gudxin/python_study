@@ -7,3 +7,5 @@ server.bind(ipaddr)
 
 server.listen()
 s1, raddr = server.accept()
+
+data1 = s1.recv(1024)
