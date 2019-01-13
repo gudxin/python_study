@@ -11,4 +11,9 @@ s1, raddr = server.accept()
 data1 = s1.recv(1024)
 
 print("create a branch is so quick")
+<<<<<<< HEAD
 print("create a branch is so quick & simple")
+=======
+print("create a branch is so quick and simple")
+>>>>>>> feature1
+print("create a branch is so quick and simple")
