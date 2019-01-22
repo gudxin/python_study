@@ -53,11 +53,12 @@ import threading
 
 
 class MyHandler(socketserver.BaseRequestHandler):
-    clients = {}   # 记录多个实例
+    clients = {}  # 记录多个实例
 
     def setup(self):
         self.event = threading.Event()
         self.clients[self.client_address] = self.request
+        print(self.client_address)
 
     def finish(self):
         self.clients.pop(self.client_address)
@@ -74,14 +75,14 @@ class MyHandler(socketserver.BaseRequestHandler):
         while not self.event.is_set():
             data = self.request.recv(1024).decode()
             print(data, '++++++++++++++++++++++++++++++')
-            if data == b'':
+            if not data:
+                print("Broken pipe")
                 break
-            print(data, self.client_address)
-            msg = "{}".format((data)).encode()
+            msg = "{}{}".format(self.client_address, data).encode()
             # 如何实现一对多
             # 多客户端在哪里， 如何获得
             for c in self.clients.values():
-                self.request.send(msg)
+                c.send(msg)
                 print('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
 
 
@@ -93,7 +94,7 @@ print(server)
 # server = socketserver.TCPServer(('0.0.0.0', 9999), MyHandler)
 # print(server)
 
-t = threading.Thread(target=server.serve_forever,name='chatserver')
+t = threading.Thread(target=server.serve_forever, name='chatserver')
 t.start()
 
 try:
