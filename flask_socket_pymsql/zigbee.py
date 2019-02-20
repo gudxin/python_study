@@ -4,6 +4,8 @@ import pymysql
 import datetime
 import re
 
+# 解释器python 3.7  C:\ProgramData\Anaconda3\python.exe
+
 
 db = pymysql.connect("192.168.14.130","xiaogu","lakerkobe00","TESTDB")
 cursor = db.cursor()
