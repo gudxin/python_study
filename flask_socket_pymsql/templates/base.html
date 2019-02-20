@@ -1,0 +1,50 @@
+{% extends "bootstrap/base.html"  %}
+{% block title %}Flask{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Zigbee监测环境 System</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <!--<li><a href="/"></a></li>-->
+            </ul>
+        </div>
+    </div>
+
+</div>
+<center><input type="button" onclick="StopInRush()" value="急停按钮"></center>
+<script>
+
+ function 	StopInRush()
+ {
+    var socket = new WebSocket('ws://localhost:9999');
+    socket.onopen = function(event)
+    {
+       socket.send(JSON.stringify('I am the client and I\'m listening!'));
+       socket.onmessage = function(event)
+      {
+         console.log('Client received a message',event);
+      };
+         socket.onclose = function(event)
+         {
+            console.log('Client notified socket has closed',event);
+          };
+    };
+ }
+</script>>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
