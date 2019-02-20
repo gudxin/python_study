@@ -1,0 +1,19 @@
+{
+"button":[
+  {
+    "name":"小功能",
+    "sub_button":[
+      {
+        "type":"click",
+        "name":"天气信息",
+        "key":"weather"
+      },
+      {
+        "type":"click",
+        "name":"台风信息",
+        "key":"typhoon"
+      }
+    ]
+  }
+]
+}
