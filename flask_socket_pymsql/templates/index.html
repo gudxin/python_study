@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Zigbee监测环境项目{% endblock %}
+
+{% block page_content %}
+
+    <table class="table table-bordered">
+    <tr>
+        <th>压力值</th>
+        <th>压力标识位</th>
+        <th>振动值</th>
+        <th>振动标识位</th>
+        <th>温度值</th>
+        <th>温度标识位</th>
+        <th>时间</th>
+    </tr>
+
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6]}}</td>
+            </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}
+
+
+

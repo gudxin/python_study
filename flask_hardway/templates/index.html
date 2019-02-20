@@ -1,14 +1,41 @@
 <html>
 	<head>
-		<title>Gothons Of Planet Percal #25</title>
+		<title>Zigbee实时监测环境</title>
 	</head>
 	<body>
-	
-	{% if greeting %}
-		I just wanted to say
-		<em style="color: green; font-size:2em;">{{ greeting }}</em>.
-	{% else %}
-		<em>Hello</em>, world!
-	{% endif %}
+	<!--{% if greeting %}-->
+		<!--I just wanted to say-->
+		<!--<em style="color: green; font-size:2em;">{{ greeting }}</em>.-->
+	<!--{% else %}-->
+		<!--<em>Hello</em>, world!-->
+	<!--{% endif %}-->
+
+	<table class="table table-bordered">
+    <tr>
+        <th>pressure</th>
+        <th>pressure_flag</th>
+        <th>vibrance</th>
+        <th>vibrance_flag</th>
+        <th>temperature</th>
+        <th>temperature_flag</th>
+        <th>time</th>
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
 	</body>
-	</html>
+</html>
+
+
+
+
+
