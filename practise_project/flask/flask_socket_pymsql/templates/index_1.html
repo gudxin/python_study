@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}GD1663A齿轮箱监测系统{% endblock %}
+
+{% block page_content %}
+<!--<body onload="myFunction0(),myFunction1(),myFunction2()">-->
+<body>
+
+    <table class="table table-bordered">
+    <tr>
+        <th>压力值(bar)</th>
+        <th>压力报警</th>
+        <th>振动值(mm/s)</th>
+        <th>振动报警</th>
+        <th>温度值(℃)</th>
+        <th>温度报警</th>
+        <th>时间</th>
+    </tr>
+
+        <!--<script>-->
+
+            <!--function myFunction0()-->
+            <!--{-->
+                <!--element=document.getElementById('flag0')-->
+                <!--// element.style.color = "#ff0000";-->
+                <!--// element.innerHTML = "hh";-->
+                <!--if(element.innerHTML === "0")-->
+                <!--{-->
+                    <!--element.style.background = "#ff0000";-->
+                <!--}-->
+                <!--else if(element.innerHTML === "1") {-->
+                    <!--element.style.background = "#ffffff";-->
+                <!--}-->
+                <!--// setTimeout(myFunction0(),myFunction0(),myFunction2(){ remind()},500)-->
+
+            <!--}-->
+            <!--function myFunction1()-->
+            <!--{-->
+                <!--element=document.getElementById('flag0')-->
+                <!--// element.style.color = "#ff0000";-->
+                <!--// element.innerHTML = "hh";-->
+                <!--if(element.innerHTML === "0")-->
+                <!--{-->
+                    <!--element.style.background = "#ff0000";-->
+                <!--}-->
+                <!--else if(element.innerHTML === "1")-->
+                <!--{-->
+                    <!--element.style.background = "#ffffff";-->
+                <!--}-->
+
+            <!--}-->
+            <!--function myFunction2()-->
+            <!--{-->
+                <!--element=document.getElementById('flag2')-->
+                <!--// element.style.color = "#ff0000";-->
+                <!--// element.innerHTML = "hh";-->
+                <!--if(element.innerHTML === "0")-->
+                <!--{-->
+                    <!--element.style.background = "#ff0000";-->
+                <!--}-->
+                <!--else if(element.innerHTML === "1")-->
+                <!--{-->
+                    <!--element.style.background = "#ffffff";-->
+                <!--}-->
+
+            <!--}-->
+        <!--</script>-->
+{% for i in u %}
+    <tr>
+        <td>{{ i[0] }}</td>
+        {% if  i[1] == '1'  %}
+        <!--<td id = "flag0">{{ i[1] }}</td>-->
+            <td bgcolor="#dc143c">{{ i[1] }}</td>
+        {% else %}
+            <td bgcolor="#ffffff">{{ i[1] }}</td>
+        {% endif %}
+        <td>{{ i[2] }}</td>
+        {% if i[3] == '1' %}
+            <td bgcolor="#dc143c">{{ i[3] }}</td>
+        {% else %}
+            <td bgcolor="#ffffff">{{ i[3] }}</td>
+        {% endif %}
+        <td>{{ i[4] }}</td>
+        {% if i[5] == '1' %}
+            <td bgcolor="#dc143c">{{ i[5] }}</td>
+        {% else %}
+            <td bgcolor="#ffffff">{{ i[5] }}</td>
+        {% endif %}
+        <td>{{ i[6]}}</td>
+
+
+    </tr>
+    {% endfor %}
+    </table>
+
+</body
+{% endblock %}
+
+
+

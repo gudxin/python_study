@@ -16,7 +16,7 @@ from urllib.parse import urlencode
 import requests
 
 
-keyword = input('>>请输入搜索关键字 ')
+keyword = input('>>请输入搜索关键字 >>> ')
 data = urlencode({
     'q':keyword
 })

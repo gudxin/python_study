@@ -2,12 +2,12 @@ import sys
 script, encoding, error = sys.argv
 
 
-def main(language_file, encoding, errors):
+def main(language_file, encodings, errors):
 	line = language_file.readline()
 
 	if line:
-		print_line(line, encoding,errors)
-		return main(language_file, encoding, errors)
+		print_line(line, encodings,errors)
+		return main(language_file, encodings, errors)
 
 def print_line(line, encoding, errors):
 	# 删除每行结尾的\n
